@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, :confirmable, omniauth_providers: %i(github)
+         :omniauthable, omniauth_providers: %i(github)
 
   def self.create_unique_string
     SecureRandom.uuid
@@ -29,6 +29,7 @@ class User < ApplicationRecord
   end
 
   def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@pepabo.com"
+    "#{auth.uid}-#{auth.provider}"
+    # "#{auth.uid}-#{auth.provider}@pepabo.com"
   end
 end

@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }.merge options
   end
 
-  # def authenticate_user!
-  #   session[:user_return_to] = env['PATH_INFO']
-  #   redirect_to user_omniauth_authorize_path(:facebook) unless user_signed_in?
-  # end
+  def after_sign_in_path_for(resource)
+    '/books'
+  end
+
 end

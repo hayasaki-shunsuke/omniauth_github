@@ -20,11 +20,6 @@
         <%= link_to "Sign up", new_user_registration_path, class: 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, class: 'navbar-link'  %>
       <% end %>
-      <% if user_signed_in? %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'githubでサインアップしてね', user_github_omniauth_authorize_path %>
-      <% end %>
     </p>
     <%= yield %>
   </body>
